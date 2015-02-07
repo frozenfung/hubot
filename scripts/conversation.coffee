@@ -28,7 +28,7 @@ module.exports = (robot) ->
     robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
       room = req.params.room
       data = JSON.parse req.body.payload
-      secret = data.content
+      content = data.content
 
       robot.messageRoom room, "#{content}"
 
