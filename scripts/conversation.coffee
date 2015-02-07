@@ -34,12 +34,12 @@ module.exports = (robot) ->
 
   robot.router.get "/hubot/test2", (req, res) ->
 
-    rebot.messageRoom "ops", "test"
+    robot.messageRoom "ops", "test"
     res.end robot.version
 
   robot.router.get "/hubot/test", (req, res) ->
 
-    rebot.messageRoom "#ops", "test"
+    robot.messageRoom "#ops", "test"
     res.end robot.version
 
   robot.router.post "/hubot/ping", (req, res) ->
