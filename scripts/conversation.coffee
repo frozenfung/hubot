@@ -24,7 +24,7 @@ module.exports = (robot) ->
         msg.send "#{msg.random prefix} #{data.name}"
 
 
-  robot.router.post '/m-hubot/:room', (req, res) ->
+  robot.router.get '/m-hubot/:room/:content', (req, res) ->
     room = req.params.room
     content = req.params.content
 
