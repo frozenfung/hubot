@@ -24,14 +24,13 @@ module.exports = (robot) ->
         msg.send "#{msg.random prefix} #{data.name}"
 
 
-  robot.exports = (robot) ->
-    robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
-      room = req.params.room
-      data = JSON.parse req.body.payload
-      content = data.content
+  robot.router.post '/m-hubot/:room', (req, res) ->
+    room = req.params.room
+    data = JSON.parse req.body.payload
+    content = data.content
 
-      robot.messageRoom room, "#{content}"
+    robot.messageRoom room, "#{content}"
 
-      res.send 'OK'
+    res.send 'OK'
 
 
