@@ -30,7 +30,7 @@ module.exports = (robot) ->
 
     robot.messageRoom room, "#{content}"
 
-    res.send 'OK'
+    res.send room
 
   robot.router.get "/hubot/version", (req, res) ->
     res.end robot.version
