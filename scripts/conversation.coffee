@@ -24,40 +24,11 @@ module.exports = (robot) ->
         msg.send "#{msg.random prefix} #{data.name}"
 
 
-  robot.router.get '/m-hubot/:room/:content', (req, res) ->
+  robot.router.post '/m-hubot/:room', (req, res) ->
     room = req.params.room
-    content = req.params.content
 
-    robot.messageRoom room, content
-
+    robot.messageRoom room, "test"
     res.send 'Done'
-
-  robot.router.get "/hubot/test2", (req, res) ->
-
-    robot.messageRoom "ops", "test"
-    res.end robot.version
-
-  robot.router.get "/hubot/test", (req, res) ->
-
-    robot.messageRoom "#ops", "test"
-    res.end robot.version
-
-  robot.router.post "/hubot/ping", (req, res) ->
-    res.end "PONG"
-
-  robot.router.get "/hubot/time", (req, res) ->
-    res.end "Server time is: #{new Date()}"
-
-  robot.router.get "/hubot/info", (req, res) ->
-    child = spawn('/bin/sh', ['-c', "echo I\\'m $LOGNAME@$(hostname):$(pwd) \\($(git rev-parse HEAD)\\)"])
-
-    child.stdout.on 'data', (data) ->
-      res.end "#{data.toString().trim()} running node #{process.version} [pid: #{process.pid}]"
-      child.stdin.end()
-
-  robot.router.get "/hubot/ip", (req, res) ->
-    robot.http('http://ifconfig.me/ip').get() (err, r, body) ->
-      res.end body
 
 
 
