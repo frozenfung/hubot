@@ -28,8 +28,8 @@ module.exports = (robot) ->
     room = req.params.room
     content = req.params.content
 
-    robot.messageRoom room, content
-    res.send 'Done'
+    robot.messageRoom room, req
+    res.send 'req
 
 
 
