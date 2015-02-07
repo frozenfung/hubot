@@ -26,8 +26,9 @@ module.exports = (robot) ->
 
   robot.router.post '/m-hubot/:room', (req, res) ->
     room = req.params.room
+    content = req.params.content
 
-    robot.messageRoom room, "test"
+    robot.messageRoom room,
     res.send 'Done'
 
 
