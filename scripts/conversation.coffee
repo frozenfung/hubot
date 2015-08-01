@@ -10,7 +10,7 @@ module.exports = (robot) ->
     msg.send "Hello, there!"
 
   robot.respond /what to eat/i, (msg) ->
-    robot.http("http://beta.foodudes.co/grape_api/v1/restaurants/random")
+    robot.http("https://foodudes.herokuapp.com/grape_api/v1/restaurants/random")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         if err
